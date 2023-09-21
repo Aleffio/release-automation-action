@@ -12,11 +12,7 @@ on:
         required: true
         type: string
       develop-branch:
-        description: 'Branch used for development'
-        required: true
-        type: string
-      release-branch:
-        description: 'Branch used for distribution'
+        description: 'Branch used for development and distribution'
         required: true
         type: string
 
@@ -42,8 +38,3 @@ jobs:
           gh release create "v${CURRENT_VERSION}" \
             --title "${{ inputs.release-title }} v${CURRENT_VERSION}" \
             --generate-notes $prerelease --target ${{ inputs.release-branch }}
-      - name: Update development branch
-        run: |
-          git checkout ${{ inputs.develop-branch }}
-          git rebase origin/${{ inputs.release-branch }}
-          git push origin ${{ inputs.develop-branch }}
