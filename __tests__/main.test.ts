@@ -3,7 +3,7 @@ import * as cp from 'child_process'
 import * as path from 'path'
 import {expect, test} from '@jest/globals'
 
-// shows how the runner will run a javascript action with env / stdout protocol
+// shows how the runner will run a javascript action with env / stdout protocol////////
 test('test runs', () => {
   // process.env['INPUT_TOKEN'] = 'my secret token'
   process.env['INPUT_CURRENT-VERSION'] = '1.2.3'
